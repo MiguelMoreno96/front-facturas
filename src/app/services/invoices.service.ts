@@ -25,4 +25,22 @@ export class InvoicesService {
     });
     return this.http.post('https://dev.hermes2017.com/ERP102600/api/v2/odata/HMMX/Erp.BO.APChkGrpSvc/APChkGrps',body,{headers})
   }
+
+  getImages() {
+    return this.http.get(`${URL}/inicial`);
+  }
+
+  uploadFile(groupId: string, initialDAte: string, finalDate: string,
+    file: File, invoice: string ,InvoiceBal: string, DocInvoiceBal: string ) {
+
+    const fd = new FormData();
+    fd.append('groupId', groupId);
+    fd.append('initialDAte', initialDAte);
+    fd.append('finalDate', finalDate);
+    fd.append('file', file);
+    fd.append('invoice', invoice);
+    fd.append('InvoiceBal', InvoiceBal);
+    fd.append('DocInvoiceBal', DocInvoiceBal);
+    return this.http.post(`http://localhost:5000/api/v1/group`, fd);
+  }
 }

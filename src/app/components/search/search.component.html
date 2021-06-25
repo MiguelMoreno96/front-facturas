@@ -1,39 +1,42 @@
 <h2>Busca tu factura</h2>
 
-<div class="container ml-2">
-    
-    <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="opcionSeleccionado" (change)="getFilterInvoice()">
-        <option *ngFor="let i of invoices">{{i.InvoiceNum}}</option>
-      </select>
-    
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" disabled placeholder="InvoiceBal" aria-label="InvoiceBal" aria-describedby="basic-addon2" [value]="InvoiceBal">
+
+
+<div class="container ml-2" >
+
+        <select #invoice class="form-select mb-3" aria-label="Default select example" [(ngModel)]="opcionSeleccionado" (change)="getFilterInvoice()">
+            <option  *ngFor="let i of invoices">{{i.InvoiceNum}}</option>
+          </select>
         
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control"  placeholder="DocInvoiceBal" aria-label="DocInvoiceBal" aria-describedby="basic-addon2" [value]="DocInvoiceBal">
-        
-      </div>
-      
-      <div class="input-group mb-3">
-        <input type="date" class="form-control" placeholder="checkDate" aria-label="checkDate" aria-describedby="basic-addon2" [(ngModel)]="groupEpicor.CheckDate">
-       
-      </div>
-
-      <div class="input-group mb-3">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1" (click)="createGroup()">Crear Grupo</button>
-        <input type="text" class="form-control" placeholder="Group" aria-label="Group" aria-describedby="basic-addon2" [(ngModel)]="groupEpicor.GroupID">
-      </div>
-
-      <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02">
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-      </div>
-
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Total" aria-label="Total" aria-describedby="basic-addon2">
-       
-      </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" #InvoiceBal disabled placeholder="InvoiceBal" aria-label="InvoiceBal" aria-describedby="basic-addon2" [value]="InvoiceBal">
+            
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" #DocInvoiceBal disabled placeholder="DocInvoiceBal" aria-label="DocInvoiceBal" aria-describedby="basic-addon2" [value]="DocInvoiceBal">
+            
+          </div>
+          
+          <div class="input-group mb-3">
+            <input type="date" class="form-control" #initialDate placeholder="initialDate" aria-label="initialDate" aria-describedby="basic-addon2" [(ngModel)]="groupEpicor.CheckDate">
+            <input type="date" class="form-control" #finalDate placeholder="finalDate" aria-label="finalDate" aria-describedby="basic-addon2" [(ngModel)]="groupEpicor.CheckDate">
+          </div>
+    
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1" (click)="createGroup()">Crear Grupo</button>
+            <input type="text" class="form-control" #groupId placeholder="Group" aria-label="Group" aria-describedby="basic-addon2" [(ngModel)]="groupEpicor.GroupID">
+          </div>
+    
+          <div class="input-group mb-3">
+            <input #file type="file" class="form-control" id="inputGroupFile02">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1" (click)="uploadPhoto(groupId,initialDate,finalDate,file,invoice,InvoiceBal,DocInvoiceBal)" (change)="onFileSelected($event)">Upload</button>
+          </div>
+    
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Total" aria-label="Total" aria-describedby="basic-addon2">
+           
+          </div>
+    
       
     
 </div>
