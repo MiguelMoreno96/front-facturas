@@ -30,8 +30,9 @@ export class SearchComponent implements OnInit {
     BankTotalWithholdTax: 0,
     DocBankTotalCheckAmt: 0,
     RowMod: "U" 
+    
   }; 
-
+  
   constructor(private invoiceService: InvoicesService) { }
 
   fileSelected: string | ArrayBuffer;
@@ -44,8 +45,9 @@ export class SearchComponent implements OnInit {
   getInvoice() {
     this.invoiceService.getInvoices().subscribe((response: any) => {
       this.invoices = response.value
-      console.log(this.invoices);
+      console.log(this.invoices,'x');
     })
+    
   }
 
   getFilterInvoice() {
@@ -53,13 +55,14 @@ export class SearchComponent implements OnInit {
 
       if(_invoices.InvoiceNum === this.opcionSeleccionado)  
       {
+        
         this.InvoiceBal = _invoices.InvoiceBal;
         this.DocInvoiceBal = _invoices.DocInvoiceBal;
         this.Total = _invoices.Total;
       }
       
     } )
-    console.log(this.invoices);
+    console.log(this.invoices,'conosle');
     
   }
   createGroup() {
@@ -67,6 +70,7 @@ export class SearchComponent implements OnInit {
   }
 
   uploadPhoto(groupId: HTMLInputElement, initialDate: HTMLInputElement, finalDate: HTMLInputElement, file: HTMLInputElement, invoice: HTMLInputElement, InvoiceBal: HTMLInputElement, DocInvoiceBal: HTMLInputElement) {
+    console.log(InvoiceBal,'x1')
     this.invoiceService.uploadFile(groupId.value, initialDate.value, finalDate.value, this.file, invoice.value, InvoiceBal.value, DocInvoiceBal.value).subscribe(data => console.log(data));
   }
 

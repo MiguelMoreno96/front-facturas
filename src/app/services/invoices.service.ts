@@ -10,20 +10,20 @@ export class InvoicesService {
 
   getInvoices( ) {
     const headers = new HttpHeaders({
-      'x-api-key': 'gFrdbifzuX6OZ4pazKOAkjSdMmjlBZTbGMmXEe6YmVk35',
+      'x-api-key': 'Md34RPafhc4EkzZ5hHJpjESHQ2Kc4B4Z8xq92JpR7W5yk',
       'Authorization': 'Basic bWFuYWdlcjpNdW5kb1ZlcmRlODAwYQ==',
       'Content-Type': 'application/json'
     });
-    return this.http.get('https://dev.hermes2017.com/ERP102600/api/v2/odata/HMMX/Erp.BO.APInvoiceSvc/APInvoices?$filter=VendorNum%20eq%201226',{headers})
+    return this.http.get('https://dev.hermes2017.com/ERP102700P/api/v2/odata/HMMX/Erp.BO.APInvoiceSvc/APInvoices?$filter=VendorNum%20eq%201226',{headers})
   }
 
   createGroup(body) {
     const headers = new HttpHeaders({
-      'x-api-key': 'gFrdbifzuX6OZ4pazKOAkjSdMmjlBZTbGMmXEe6YmVk35',
+      'x-api-key': 'Md34RPafhc4EkzZ5hHJpjESHQ2Kc4B4Z8xq92JpR7W5yk',
       'Authorization': 'Basic bWFuYWdlcjpNdW5kb1ZlcmRlODAwYQ==',
       'Content-Type': 'application/json'
     });
-    return this.http.post('https://dev.hermes2017.com/ERP102600/api/v2/odata/HMMX/Erp.BO.APChkGrpSvc/APChkGrps',body,{headers})
+    return this.http.post('https://dev.hermes2017.com/ERP102700P/api/v2/odata/HMMX/Erp.BO.APChkGrpSvc/APChkGrps',body,{headers})
   }
 
   getImages() {
